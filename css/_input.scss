@@ -1,0 +1,28 @@
+.input {
+    width: 250px;
+    height: 50px;
+    margin-top: 10px;
+    text-align: center;
+    border: 1px solid #818181;
+    border-radius: 14px;
+
+    &__label {
+        width: 100%;
+        font-weight: 600;
+        padding-top: 20px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        color: white;
+
+
+        &--description{
+            height: 60px;
+        }
+    }
+    &__number{
+        width: 40%;
+    }
+}
