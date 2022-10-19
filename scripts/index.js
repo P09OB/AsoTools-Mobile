@@ -14,13 +14,14 @@ bttStart.addEventListener('click',()=>{
         localStorage.setItem('name',name.value+"")
         if(!name.value==''){
             changeUsers(name.value)
+            name.value = ''
         } else{
-            alert("llene todos los campos")
+            alert("Llene todos los campos")
         }
     } else{
 
-        //PRIMERA VERIFICACIÓN DE SI EXISTE EL CÓDIGO
         localStorage.setItem('code',code.value+"")
+        code.value = ''
 
         onGetUsers((querySnapshot) => {
             querySnapshot.forEach((doc) => {
@@ -28,14 +29,12 @@ bttStart.addEventListener('click',()=>{
                 localStorage.setItem('idSesion',project.id)
                 localStorage.setItem('idUser',project.idUser)
 
-
-                console.log(project.users )
                 inputCode.classList.add('hidden')
                 inputName.classList.remove('hidden')
             });
 
             if(inputName.classList.contains('hidden')){
-                alert('Code erroneo')
+                alert('Código incorrecto')
             }
             
         }) 

@@ -5,12 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css">
+
 </head>
 <body>
 
-    <section>
+    <section class="banner">
+        <div class="banner__welcome welcome">
         <h1>Bienvenido</h1>
-        <div>Esperando a mas participantes</div>
+        <div>Esperando a mas participantes...</div>
+        </div>
+        
+        <div class="banner__content inputAnswer hidden">
+            <p class="banner__content--question question">Pregunta</p>
+            <input class="banner__content--input answer" type="text">
+            <button class="bttNext button button--width">Enviar</button>
+        </div>
+
+       <div class="thanks banner__content--question hidden"><h2>Gracias por su participación</h2></div>
+        <button class="button return">Volver</button>
 
     </section>
     
