@@ -36,9 +36,9 @@ export const changeUsers = (userName) =>{
 export const onGetSesion = (callback) =>
 onSnapshot(doc(db, 'users', localStorage.getItem('idUser'), "sesion", localStorage.getItem('idSesion')), callback)
 
-export const setSesion = (code,answer) =>{
+export const setSesion = (code,answer,userName) =>{
   const ref = doc(db, "users", localStorage.getItem('idUser'),"sesion",localStorage.getItem('idSesion'));
-  updateDoc(ref, {[code]: arrayUnion(answer)}).then(()=>{
+  updateDoc(ref, {[code]: arrayUnion({name: userName, answer: answer})}).then(()=>{
     alert("Se envio su respuesta")
   })
 }

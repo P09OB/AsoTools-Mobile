@@ -33,13 +33,14 @@ onGetSesion((querySnapshot)=>{
     if(sesion.completed){
         thanks.classList.remove('hidden')
         sectionAnswer.classList.add('hidden')
+        returnBtt.classList.remove('hidden')
     }
 
 })
 
 bttSend.addEventListener('click',()=>{
     console.log(code)
-    setSesion(code,answer.value)
+    setSesion(code,answer.value, localStorage.getItem('name'))
     answer.value = ''
 })
 

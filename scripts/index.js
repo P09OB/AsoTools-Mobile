@@ -35,17 +35,7 @@ bttStart.addEventListener('click',()=>{
 
             if(inputName.classList.contains('hidden')){
                 alert('Código incorrecto')
-            }
-            
+            }            
         }) 
-        
-
-    
-    
     }
-   
-    
-
-    
-
 })
