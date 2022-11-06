@@ -14,7 +14,7 @@ import {onGetSesion, setSesion} from './firebase.js'
  let code = ''
  let counter = 0
 
- //Configurar
+ //Cambiar configuración
 onGetSesion((querySnapshot)=>{
     question.innerHTML = ""
     const sesion = querySnapshot.data()
