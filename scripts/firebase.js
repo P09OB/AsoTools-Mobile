@@ -38,8 +38,17 @@ onSnapshot(doc(db, 'users', localStorage.getItem('idUser'), "sesion", localStora
 
 export const setSesion = (code,answer,userName) =>{
   const ref = doc(db, "users", localStorage.getItem('idUser'),"sesion",localStorage.getItem('idSesion'));
-  updateDoc(ref, {[code]: arrayUnion({name: userName, answer: answer})}).then(()=>{
-    alert("Se envio su respuesta")
+  updateDoc(ref, {[code]: arrayUnion({name: userName, answer: answer})})
+}
+
+export const setSesionOpcions = () =>{
+  const ref = doc(db, "users", localStorage.getItem('idUser'),"sesion",localStorage.getItem('idSesion'));
+  updateDoc(ref,
+     ).then(()=>{
+    alert("Se enviaron las opciones a evaluar ")
   })
 }
 
+export const onGetProyect = (callback) => 
+
+onSnapshot(doc(db, 'users', localStorage.getItem('idUser'), "proyects", localStorage.getItem('idProyect')), callback)
