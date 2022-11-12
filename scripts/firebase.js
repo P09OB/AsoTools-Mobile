@@ -33,6 +33,18 @@ export const changeUsers = (userName) =>{
   })
 }
 
+export const groupUsers = (userName,group) =>{
+  const ref = doc(db, "users", localStorage.getItem('idUser'),"sesion",localStorage.getItem('idSesion'));
+  updateDoc(ref, {users: arrayUnion(
+    {
+      userName,
+      group
+
+    })}).then(()=>{
+    location.href="./home.html";
+  })
+}
+
 export const onGetSesion = (callback) =>
 onSnapshot(doc(db, 'users', localStorage.getItem('idUser'), "sesion", localStorage.getItem('idSesion')), callback)
 

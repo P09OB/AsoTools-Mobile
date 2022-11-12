@@ -48,37 +48,58 @@ onGetSesion((querySnapshot) => {
             answer.classList.remove('hidden')
             sectionEmojis.classList.add('hidden')
 
-        } else {
+        }
 
-            if (sesion.evaluateAns) {
+        if (sesion.evaluateAns) {
+            answer.classList.add('hidden')
+            dateEvaluate = sesion.objEvaluate[sesion.counter]
+            obtEvaluate = dateEvaluate.evaluate.answer
+            codeEvaluate = dateEvaluate.code
+            question.innerHTML = obtEvaluate
+
+            if (counter == sesion.counter & sesion.completed == false) {
+
+                sectionEmojis.classList.remove('hidden')
+                standby.classList.add('hidden')
+                question.classList.remove('hidden')
+                bttSend.classList.remove('hidden')
+            } else if (sesion.completed == false) {
+                sectionEmojis.classList.add('hidden')
+                standby.classList.remove('hidden')
+                question.classList.add('hidden')
+                bttSend.classList.add('hidden')
+            } else {
+                thanks.classList.remove('hidden')
+                sectionAnswer.classList.add('hidden')
+                returnBtt.classList.remove('hidden')
+            }
+        }
+
+
+        if (sesion.idMethodology === 'Árbol del problema') {
+            date = sesion.objQuestions[sesion.counter]
+            obtener = date.question
+            code = date.code
+            question.innerHTML = date.question
+            if (counter == sesion.counter) {
+                sectionAnswer.classList.remove('hidden')
+                answer.classList.remove('hidden')
+                sectionEmojis.classList.add('hidden')
+                standby.classList.add('hidden')
+
+
+            } else {
+                sectionAnswer.classList.add('hidden')
                 answer.classList.add('hidden')
-                dateEvaluate = sesion.objEvaluate[sesion.counter]
-                obtEvaluate = dateEvaluate.evaluate.answer
-                codeEvaluate = dateEvaluate.code
-                question.innerHTML = obtEvaluate
+                sectionEmojis.classList.remove('hidden')
+                standby.classList.remove('hidden')
 
-
-                console.log(counter + " " + sesion.counter + " " + sesion.completed)
-                if (counter == sesion.counter & sesion.completed == false) {
-
-                    sectionEmojis.classList.remove('hidden')
-                    standby.classList.add('hidden')
-                    question.classList.remove('hidden')
-                    bttSend.classList.remove('hidden')
-                } else if (sesion.completed == false) {
-                    sectionEmojis.classList.add('hidden')
-                    standby.classList.remove('hidden')
-                    question.classList.add('hidden')
-                    bttSend.classList.add('hidden')
-                } else {
-                    thanks.classList.remove('hidden')
-                    sectionAnswer.classList.add('hidden')
-                    returnBtt.classList.remove('hidden')
-                }
 
 
             }
+
         }
+
 
     }
 
@@ -177,6 +198,24 @@ bttSend.addEventListener('click', () => {
         valNice = false
         emojis()
         counter = sesion.counter + 1
+    }
+
+    if (sesion.idMethodology === 'Árbol del problema') {
+
+        if(counter <= 2){
+            setSesion(localStorage.getItem('group'), answer.value, localStorage.getItem('name'))
+            answer.value = ''
+            counter = sesion.counter + 1
+        } else {
+            if(counter >= 3){
+                let group = localStorage.getItem('group')+'Con'
+                setSesion(group, answer.value, localStorage.getItem('name'))
+                answer.value = ''
+                counter = sesion.counter + 1
+            }
+        }
+        
+
     }
 })
 

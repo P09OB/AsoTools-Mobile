@@ -117,4 +117,13 @@ body {
 
 .button:hover {
   background-color: #8ec543;
+}
+
+.template--flex {
+  display: flex;
+}
+.template--answer {
+  padding: 20px;
+  margin: 20px;
+  background-color: white;
 }/*# sourceMappingURL=main.css.map */
